@@ -7,9 +7,21 @@ a {
   color: #00B7FF;
 } */
 
+
+@import url('https://fonts.googleapis.com/css?family=Nunito');
+@import url('https://fonts.googleapis.com/css?family=Titillium+Web');
+
+body{
+  /* font-family: 'Titillium Web',sans-serif; */
+  font-family: 'Nunito',sans-serif;
+
+}
+
+
+/***********    NavBar Start    ***********/
 #navBar{
   background-color: rgb(0, 41, 73);
-  box-shadow: 0px 2px 8px 3px rgba(171, 176, 189, 0.8);
+  box-shadow: 0px 2px 8px 3px rgb(171, 176, 189);
   margin-bottom: 5%;
   padding-top: 1%;
   padding-bottom: 1%;
@@ -18,40 +30,55 @@ a {
 /* .nav-link{
   color: #ffffff;
 } */
-
-.login-btn{
-  margin-right: 10%;
-}
-
-.navbar-brand-logo{
+.navbar-brand-logo {
   margin-top: -2%;
-  margin-right : 10%;
+  margin-right: 5%;
   box-shadow: 0px 0px 5px 2px #c7d0e9cc;
   border-radius: 25%;
   padding: 2%;
+}
+
+.app-name{
+  color: #94caf7;
+  font-weight: bold;
 }
 
 .nav-links{
   margin-left: 2%;
 }
 
+.login-btn{
+  margin-right: 10%;
+}
+/***********      NavBar End     ***********/
+
+
+
+
+/***********       Vocab Card Start    ***********/
 .vocab-card{
   /* background-color: steelblue; */
   padding-bottom: 3%;
-  box-shadow: 0px 4px 30px 3px rgba(171, 176, 189, 0.8);
+  box-shadow: 0px 4px 20px 3px rgba(171, 176, 189, 0.3);
+  border-radius: 0.5em;
 }
 
 .vocab-card-header{
-  background-color: #0075ce;
+  background-color: #003d6b;
+  box-shadow: 0px 2px 15px 3px rgba(171, 176, 189, 0.3);
+  /* border-top-right-radius: 2em; */
 }
 
 .vocab-card-h-text {
   color: white;
+  font-size: 1.6em;
+  font-weight: 500;
 }
 
 .vocab-logo{
   margin: 2%;
+  margin-bottom: 4%;
 }
-
+/***********       Vocab Card End    ***********/
 
 
