@@ -14,7 +14,15 @@ a {
 body{
   /* font-family: 'Titillium Web',sans-serif; */
   font-family: 'Nunito',sans-serif;
+}
 
+.custom-active{
+  background-color: #014172;
+  padding-left: 2px;
+  padding-right: 2px;
+  /* border-width: 15px; */
+  border-radius: 3px;
+  color: white;
 }
 
 
@@ -51,6 +59,16 @@ body{
 .login-btn{
   margin-right: 10%;
 }
+
+.signup-btn{
+  background-color: #dae1e9;
+  border-radius: 0.5em;
+}
+
+.signup-btn-text{
+  color : rgb(0, 41, 73);
+}
+
 /***********      NavBar End     ***********/
 
 
@@ -60,13 +78,13 @@ body{
 .vocab-card{
   /* background-color: steelblue; */
   padding-bottom: 3%;
-  box-shadow: 0px 4px 20px 3px rgba(171, 176, 189, 0.3);
+  box-shadow: 0px 4px 20px 3px rgba(171, 176, 189, 0.5);
   border-radius: 0.5em;
 }
 
 .vocab-card-header{
   background-color: #003d6b;
-  box-shadow: 0px 2px 15px 3px rgba(171, 176, 189, 0.3);
+  box-shadow: 0px 2px 15px 3px rgba(171, 176, 189, 0.7);
   /* border-top-right-radius: 2em; */
 }
 
@@ -82,4 +100,26 @@ body{
 }
 /***********       Vocab Card End    ***********/
 
+
+
+/***********      Login/SignUp Form Start    ***********/
+
+.create-account-span,.login-here-span:hover {
+  cursor: pointer;
+}
+
+.signup-modal-header {
+  background-color: #e5e9ec;
+  color: rgb(0, 41, 73);
+}
+
+.login-modal-header {
+  border-top-left-radius: 2px;
+  border-top-right-radius: 2px;
+  margin-right: -0.5px;
+  background-color: #138496;
+  color: #ffffff;
+}
+
+/***********      Login/SignUp Form End    ***********/
 
