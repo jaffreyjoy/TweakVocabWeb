@@ -121,5 +121,10 @@ body{
   color: #ffffff;
 }
 
+.checkbox-size{
+  width: 17px;
+  height: 17px;
+}
+
 /***********      Login/SignUp Form End    ***********/
 
