@@ -56,13 +56,20 @@ body{
   margin-left: 2%;
 }
 
-.login-btn{
+.login-btn-cont{
   margin-right: 10%;
+  margin-bottom : 2%;;
+}
+
+.login-btn {
+  padding-left: 20.5px;
+  padding-right: 20.5px;
 }
 
 .signup-btn{
   background-color: #dae1e9;
   border-radius: 0.5em;
+  margin: 1px;
 }
 
 .signup-btn-text{
