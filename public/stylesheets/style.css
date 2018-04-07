@@ -64,12 +64,16 @@ body{
 .login-btn {
   padding-left: 20.5px;
   padding-right: 20.5px;
+  border-radius: 0.3em;
+}
+
+.signup-btn-cont{
+    margin: 1px;
 }
 
 .signup-btn{
   background-color: #dae1e9;
-  border-radius: 0.5em;
-  margin: 1px;
+  border-radius: 0.3em;
 }
 
 .signup-btn-text{
