@@ -10,7 +10,7 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
     crossorigin="anonymous">
-    <link rel="stylesheet" href="/stylesheets/style.css">
+    <link rel="stylesheet" href="stylesheets/style.css">
 
     <title>Tweak Vocab</title>
     <!-- Optional JavaScript -->
@@ -21,6 +21,7 @@
         crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -99,11 +100,11 @@
                 <div class="modal-body">
                     <div class="container-fluid">
                     <!-- Login Form start -->
-                    <form>
+                    <form >
                         <div class="form-row">
                             <div class="col-md-10 mb-3">
                                 <label for="validationServer01">Enter username or email</label>
-                                <input type="text" class="form-control" id="validationServer01" placeholder="username / email" value="" required>
+                                <input type="text" class="form-control" id="id" name="id" placeholder="username / email" value="" required>
                                 <!-- <div class="valid-feedback">
                                     Looks good!
                                 </div> -->
@@ -112,24 +113,24 @@
                         <div class="form-row">
                             <div class="col-md-10 mb-3">
                                 <label for="validationServer03">Enter password</label>
-                                <input type="password" class="form-control" id="validationServer03" placeholder="password" required>
+                                <input type="password" class="form-control" id="login_pass" name="login_pass" placeholder="password" required>
                                 <!-- <div class="invalid-feedback">
                                     Please provide a valid city.
                                 </div> -->
                             </div>
                         </div>
-                        <div class="form-group">
+                        <!-- <div class="form-group">
                             <div class="form-check">
-                                <input class="form-check-input checkbox-size" type="checkbox" value="" id="invalidCheck3" required>
+                                <input class="form-check-input checkbox-size" type="checkbox" value="" id="confirm_password" required>
                                 <label class="form-check-label" for="invalidCheck3">
                                     Remember me
                                 </label>
-                                <!-- <div class="invalid-feedback">
+                                <div class="invalid-feedback">
                                     You must agree before submitting.
-                                </div> -->
+                                </div> 
                             </div>
-                        </div>
-                        <button class="btn btn-primary" type="submit" data-toggle="modal" data-target="#signUpModal" data-dismiss="modal">Submit</button>
+                        </div>-->
+                        <button class="btn btn-primary" onclick="login_click()">Submit</button>
                     </form>
                     </div>
                     <!-- Login Form End -->
@@ -172,30 +173,31 @@
                 <div class="modal-body">
                     <div class="container-fluid">
                     <!-- SignUp Form start -->
-                    <form>
+                    <form action="signup.php" method="POST">
                         <div class="form-row">
                             <div class="col-md-6 mb-3">
                                 <label for="validationServer01">First name</label>
-                                <input type="text" class="form-control is-valid" id="validationServer01" placeholder="First name" value="Mark" required>
-                                <div class="valid-feedback">
+                                <input type="text" class="form-control is-valid" id="first_name" name="fname" placeholder="eg. Mark" pattern="[A-Za-z]+" title="Name can only consist of letters!!"required >
+                                <!-- <div class="valid-feedback" id="first_name_valid">
                                     Looks good!
-                                </div>
+                                </div> -->
                             </div>
                             <div class="col-md-6 mb-3">
                                 <label for="validationServer02">Last name</label>
-                                <input type="text" class="form-control is-valid" id="validationServer02" placeholder="Last name" value="Otto" required>
-                                <div class="valid-feedback">
+                                <input type="text" class="form-control is-valid" id="last_name" name="lname" placeholder="eg. Otto" 
+                                required pattern="[A-Za-z]+" title="Name can only consist of letters!!">
+                                <!-- <div class="valid-feedback" id="last_name_valid">
                                     Looks good!
-                                </div>
+                                </div> -->
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="col-md-7 mb-3">
                                 <label for="validationServer03">Email id</label>
-                                <input type="text" class="form-control is-invalid" id="validationServer03" placeholder="email address" required>
-                                <div class="invalid-feedback">
+                                <input type="Email" class="form-control is-invalid" id="validationServer03" name="eid" placeholder="eg. example@email.com" required>
+                               <!--  <div class="invalid-feedback">
                                     Please provide a valid email.
-                                </div>
+                                </div> -->
                             </div>
                             <div class="col-md-5 mb-3">
                                 <label for="validationServerUsername">Username</label>
@@ -203,37 +205,37 @@
                                     <div class="input-group-prepend">
                                         <span class="input-group-text" id="inputGroupPrepend3">@</span>
                                     </div>
-                                    <input type="text" class="form-control is-invalid" id="validationServerUsername" placeholder="username" aria-describedby="inputGroupPrepend3"
+                                    <input type="text" class="form-control is-invalid" id="username" name="uname" placeholder="eg. OMark34" aria-describedby="inputGroupPrepend3"
                                         required>
-                                    <div class="invalid-feedback">
+                                   <!--  <div class="invalid-feedback">
                                         Please choose a username.
-                                    </div>
+                                    </div> -->
                                 </div>
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="col-md-6 mb-3">
                                 <label for="validationServer03">Password</label>
-                                <input type="password" class="form-control is-invalid" id="validationServer03" placeholder="password" required>
+                                <input type="password" class="form-control is-invalid" placeholder="password" name="pass" id="s_password" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters">
                                 <div class="valid-feedback">
                                     Good to go!!
                                 </div>
-                                <div class="invalid-feedback">
+                                <!-- <div class="invalid-feedback">
                                     Minimum length - 8
-                                </div>
+                                </div> -->
                             </div>
                             <div class="col-md-6 mb-3">
                                 <label for="validationServer03">Re-enter Password</label>
-                                <input type="password" class="form-control is-invalid" id="validationServer03" placeholder="password" required>
+                                <input type="password" id="s_confirm_password" class="form-control is-invalid" placeholder="password" required>
                                 <div class="valid-feedback">
                                     All good!!
                                 </div>
-                                <div class="invalid-feedback">
+                                <!-- <div class="invalid-feedback">
                                     Passwords dont match
-                                </div>
+                                </div> -->
                             </div>
                         </div>
-                        <div class="form-group">
+                        <!-- <div class="form-group">
                             <div class="form-check">
                                 <input class="form-check-input is-invalid checkbox-size" type="checkbox" value="" id="invalidCheck3" required>
                                 <label class="form-check-label" style="color: black;" for="invalidCheck3">
@@ -246,7 +248,7 @@
                                     You must agree before submitting.
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                         <!-- <div class="form-group">
                             <div class="custom-control custom-checkbox">
                                 <input type="checkbox" class="custom-control-input form-check-input is-invalid text-primary" id="customCheck1">
@@ -265,7 +267,7 @@
                             </div>
                         </div> -->
 
-                        <button class="btn btn-primary" type="submit">Submit form</button>
+                        <button class="btn btn-primary" type="submit" >Submit form</button>
                     </form>
                     </div>
                     <!-- SignUp Form End -->
@@ -292,5 +294,91 @@
     </div>
     <!-- SignUp Modal End -->
 </body>
+
+
+<!-- signup modal scripts -->
+<script type="text/javascript">
+var data;
+
+        
+
+        
+
+
+var password = document.getElementById("s_password")
+  , confirm_password = document.getElementById("s_confirm_password");
+
+$('#username').change(function(){
+	var entered_username = $('#username').val()
+	// console.log("checking")
+	// console.log(data)
+	if(data.filter(function(arr){return arr.username == entered_username})[0])
+    {
+    	alert("Username Already Exists!!")
+    	$('#username').val("")
+    }
+    // else{
+    // 	console.log("success")
+    // }
+})
+
+
+function validatePassword(){
+  if(password.value != confirm_password.value) {
+    confirm_password.setCustomValidity("Passwords Don't Match");
+  } else {
+    // console.log('Passwords match!!')
+    confirm_password.setCustomValidity("");
+  }
+}
+
+password.onchange = validatePassword;
+confirm_password.onkeyup = validatePassword;
+
+
+	$.ajax({
+        url: 'get_users.php',
+        type: 'POST',
+        error: (function(data){
+            // console.log(data);
+            }),
+        success: (function(data){
+            // console.log(data);
+            })
+    }).done(function(response){
+        // console.log("in done")
+        data = JSON.parse(response);
+        // console.log(data.length)
+
+    }); 
+
+// loginModal
+
+function login_click()
+{
+	console.log("in login click")
+	var user = $('#id').val()
+	var pass = $('#login_pass').val()
+	$.ajax({
+            url: 'login.php',
+            type: 'POST',
+            data: {user:user,pass:pass},
+            error: (function(data){
+                console.log(data);
+                }),
+            success: (function(data){
+                console.log(data);
+                })
+        }).done(function(response){
+            // console.log("in done")
+            var data = JSON.parse(response);
+            console.log(data.length)
+
+        });  
+}
+    
+</script>
+
+
 
 </html>
