@@ -30,16 +30,16 @@ body{
 
 .custom-active {
   background-color: #014172;
-  padding-left: 2px;
-  padding-right: 2px;
   /* border-width: 15px; */
   border-radius: 3px;
   color: white;
 }
 
 .nav-item {
-  margin-left: 3%;
-  margin-right: 3%;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin-left: 2.5%;
+  margin-right: 2.5%;
 }
 
 .nav-link{
