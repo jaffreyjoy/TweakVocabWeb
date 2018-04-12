@@ -2,6 +2,12 @@
 <html>
 <head>
     <!-- Required meta tags -->
+
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700' rel='stylesheet' type='text/css'>
+
+    <link rel="stylesheet" href="css/reset.css"> <!-- CSS reset -->
+    <link rel="stylesheet" href="css/style.css"> <!-- Resource style -->
+<script src="js/modernizr.js"></script> <!-- Modernizr -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="icon" type="image/x-icon" href="favicon.ico">
@@ -22,6 +28,13 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+
+
+      <style type="text/css">
+          .btn-link{
+            font-size: 20px
+          }
+      </style>
 </head>
 <body>
  <!-- NavBar start -->
@@ -64,7 +77,7 @@
                 </li>
                <li class="nav-item" id="text">
                     <div >
-	                    <h5 id="greeting">Hi there!</h5>
+	                    <h5 id="greeting" style="color: white; margin-top: 10px;z-index: 2;position: absolute; right: 0;margin-right: 225px;">Hi there!</h5>
                 	</div>
                 </li>
                 <li class="nav-item signup-btn-cont" data-toggle="modal" data-target="#signUpModal" id="logout_button">
@@ -119,7 +132,7 @@
                                 </label>
                                 <div class="invalid-feedback">
                                     You must agree before submitting.
-                                </div>
+                                </div> 
                             </div>
                         </div>-->
                         <button class="btn btn-primary" onclick="login_click()">Submit</button>
@@ -176,7 +189,7 @@
                             </div>
                             <div class="col-md-6 mb-3">
                                 <label for="validationServer02">Last name</label>
-                                <input type="text" class="form-control" id="last_name" name="lname" placeholder="eg. Otto"
+                                <input type="text" class="form-control" id="last_name" name="lname" placeholder="eg. Otto" 
                                 required pattern="[A-Za-z]+" title="Name can only consist of letters!!">
                                 <!-- <div class="valid-feedback" id="last_name_valid">
                                     Looks good!
@@ -287,5 +300,103 @@
     <!-- SignUp Modal End -->
       <script type="text/javascript" src="js/access.js" ></script>
 
+      <!doctype html>
+    <meta charset="UTF-8">
+    
+<header>
+    <h2 style="text-align: center;font-weight: bold">FAQs</h2>
+</header>
+<br>
+
+<div class="container">
+    
+<div id="accordion">
+  <div class="card">
+    <div class="card-header" id="headingOne">
+      <h5 class="mb-0">
+        <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+            How do I login?
+        </button>
+      </h5>
+    </div>
+
+    <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+      <div class="card-body">
+        <p>At the top of each screen there is an opportunity to login. Enter your registered details into the Username and Password boxes and then click the Login box.
+        <br>
+        If you have not yet created an account, you can do so by being directed to the registration form by clicking the <strong>create one</strong> link</p>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header" id="headingTwo">
+      <h5 class="mb-0">
+        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+         Why did my login fail?
+        </button>
+      </h5>
+    </div>
+    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+      <div class="card-body">
+        <p>There can be a number of reasons for this. Some of them can be:
+        <ul>
+          <li>Incorrect username</li>
+          <li>Incorrect password</li>
+        </ul>
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header" id="headingThree">
+      <h5 class="mb-0">
+        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+          How many times can an incorrect password be entered?
+        </button>
+      </h5>
+    </div>
+    <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+      <div class="card-body">
+       <p>There is no limit for how many times you can enter your password incase of forgetting or accidently typing out the wrong password.
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header" id="headingFour">
+      <h5 class="mb-0">
+        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+          What is supposed to happen after completion of one chapter?
+        </button>
+      </h5>
+    </div>
+    <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordion">
+      <div class="card-body">
+       <p>There should be a message that pops up saying that you have mastered the words in one chapter and can continue on to the next chapter.
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-header" id="headingFive">
+      <h5 class="mb-0">
+        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+          While Signing up, when i fill my username, it disappears!!
+        </button>
+      </h5>
+    </div>
+    <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordion">
+      <div class="card-body">
+       <p>Username is unique for each user. If your entered username is already taken, you will be shown a alert message
+        and username will be cleared for you to enter a new one.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+</div><!--  end of container -->
+
+
 </body>
 </html>
+
