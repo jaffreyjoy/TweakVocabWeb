@@ -16,15 +16,19 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 } 
 
-$sql1 = "SELECT * FROM users WHERE (username=$user OR email_id=$user) AND password=$pass";
+$sql1 = "SELECT * FROM users WHERE (username='$user' OR email_id='$user') AND password='$pass'";
 $result = $conn->query($sql1);
-if ($result->num_rows > 0) {
+$num_rows = mysqli_num_rows($result);
+if ($num_rows > 0) {
 	// header('Location: chapters.html'); 
-	echo "Successful Login";
+	while ($row = $result->fetch_assoc()) {
+	  	echo json_encode($row);
+	}
+	// echo $result;
 } 
 else
 {
-	echo "Invalid Username or password";
+	echo "fail";
 }
 
 

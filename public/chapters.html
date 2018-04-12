@@ -10,6 +10,8 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
     crossorigin="anonymous">
     <link rel="stylesheet" href="stylesheets/style.css">
+    <link rel="stylesheet" href="stylesheets/toast.css">
+    
 
     <title>Tweak Vocab</title>
     <!-- Optional JavaScript -->
@@ -53,17 +55,26 @@
         </div>
         <form class="form-inline">
             <ul class="navbar-nav">
-                <li class="login-btn-cont nav-item">
+                <li class="login-btn-cont nav-item" id="login_button">
                     <button type="button" class="btn login-btn" data-toggle="modal" data-target="#loginModal">Login</button>
                 </li>
-                <li class="nav-item signup-btn-cont" data-toggle="modal" data-target="#signUpModal">
+                <li class="nav-item signup-btn-cont" data-toggle="modal" data-target="#signUpModal" id="signup_button">
                     <button type="button" class="btn signup-btn"><span class="signup-btn-text">Sign Up</span></button>
+                </li>
+                <li class="nav-item" id="text">
+                    <div >
+	                    <h5 id="greeting" style="color: white; margin-top: 10px;z-index: 2;position: absolute; right: 0;margin-right: 225px;">Hi there!</h5>
+                	</div>
+                </li>
+                <li class="nav-item signup-btn-cont" data-toggle="modal" data-target="#signUpModal" id="logout_button">
+                    <button type="button" class="btn signup-btn" onclick="logout()"><span class="signup-btn-text">Logout</span></button>
                 </li>
             </ul>
         </form>
         </div>
     </nav>
     <!-- NavBar end -->
+    <div id="snackbar">Incorrect Id or password!!!</div>
  <!-- Login Modal start -->
     <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">

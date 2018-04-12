@@ -52,7 +52,9 @@ function submit_form()
                     }
                     else
                     {
-                        $('#signUpModal').modal('toggle');
+                        // $('#signUpModal').modal('toggle');
+                        location.reload();
+
                     }
 	            })
 	    })
@@ -67,6 +69,7 @@ function submit_form()
 }
 
 var data;
+
 var password = document.getElementById("s_password")
   , confirm_password = document.getElementById("s_confirm_password");
 
@@ -113,22 +116,84 @@ confirm_password.onkeyup = validatePassword;
 
 function login_click()
 {
-	console.log("in login click")
 	var user = $('#id').val()
 	var pass = $('#login_pass').val()
+    // console.log("in login click")
+    // console.log("user: "+user)
+    // console.log("pass: "+pass)
 	$.ajax({
             url: 'backend/login.php',
             type: 'POST',
             data: {user:user,pass:pass},
             error: (function(data){
-                console.log("in error");
+                // console.log("in error");
                 console.log(data);
                 }),
             success: (function(data){
                 console.log("in success");
-                	console.log(data);
-                	window.location.href = 'chapters.html'
+                if (data=="fail") 
+                {
+                    console.log("fail")
+                    showSnackbar();                
+                }
+                else
+                {
+                    data = JSON.parse(data);
+                    console.log(data);
+                    console.log(data.text);
+
+                    localStorage.setItem('user',data.username)
+                    localStorage.setItem('fname',data.first_name)
+                    localStorage.setItem('lname',data.last_name)
+                    window.location.href = 'chapters.html'
+                    
+                }
+                
+
                 })
         })
 }
-    
+
+
+
+// login signup toggle
+
+$( window ).on( "load", function(){
+    // console.log("working")
+    var user = localStorage.getItem('user');
+    console.log("user: "+ user)
+    if (user==null||user=="") 
+    {
+        // no one logged in
+        $('#login_button').show()
+        $('#signup_button').show()
+        $('#logout_button').hide()
+        $('#text').hide()
+    }
+    else
+    {
+        // a user logged in
+        $('#login_button').hide()
+        $('#signup_button').hide()
+        $('#logout_button').show()
+        $('#text').show()
+        fname = localStorage.getItem('fname')
+        lname = localStorage.getItem('lname')
+        $('#greeting').text("Hello "+ fname + " " + lname + "!")
+        
+
+    }
+
+});
+
+function logout()
+{
+     localStorage.setItem('user',"")
+     location.reload();
+}
+
+function showSnackbar() {
+    var x = document.getElementById("snackbar");
+    x.className = "show";
+    setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
+}
