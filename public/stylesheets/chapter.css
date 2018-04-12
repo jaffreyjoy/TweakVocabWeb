@@ -1,0 +1,33 @@
+.card-columns {
+    @include media-breakpoint-only(lg) {
+        column-count: 4;
+    }
+    @include media-breakpoint-only(xl) {
+        column-count: 5;
+    }
+}
+
+.chapter-card-img{
+    padding: 7%;
+    box-shadow: 0px 6px 10px -3px rgba(0, 41, 73, 0.2);
+}
+
+.chapter-card{
+    margin: 5%;
+    margin-bottom: 15%;
+    border-width: 0px;
+    border-radius: 15px;
+    box-shadow: 0px 0px 24px 0px rgba(0, 41, 73,0.8);
+}
+
+.chapter-title{
+    font-weight: 600;
+}
+
+.chapter-btn{
+    padding-left: 30%;
+    padding-right: 30%;
+    border-radius: 10px;
+    box-shadow: 0px 5px 10px -3px rgba(0, 41, 73, 0.5);
+}
+

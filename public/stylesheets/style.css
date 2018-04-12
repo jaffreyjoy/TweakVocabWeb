@@ -12,8 +12,16 @@ a {
 @import url('https://fonts.googleapis.com/css?family=Titillium+Web');
 
 body{
-  /* font-family: 'Titillium Web',sans-serif; */
-  font-family: 'Nunito',sans-serif;
+  font-family: 'Nunito','sans-serif';
+  background: #1A2980;
+  /* fallback for old browsers */
+
+  background: -webkit-linear-gradient(to left, #26D0CE, #1A2980);
+  /* Chrome 10-25, Safari 5.1-6 */
+
+  background: linear-gradient(to left, rgba(45, 219, 216, 0.877), rgba(37, 59, 185, 0.897));
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
 }
 
 
@@ -22,8 +30,8 @@ body{
 /***********    NavBar Start    ***********/
 #navBar{
   background-color: rgb(0, 41, 73);
-  box-shadow: 0px 2px 8px 3px rgb(171, 176, 189);
-  margin-bottom: 5%;
+  box-shadow: 0px 2px 8px 3px rgba(0, 41, 73,0.5);
+  margin-bottom: 4%;
   padding-top: 1%;
   padding-bottom: 1%;
 }
@@ -108,13 +116,14 @@ body{
 .vocab-card{
   /* background-color: steelblue; */
   padding-bottom: 3%;
-  box-shadow: 0px 4px 20px 3px rgba(171, 176, 189, 0.5);
+  border-width: 0px;
+  box-shadow: 0px 4px 20px 3px rgba(0, 41, 73,0.5);
   border-radius: 0.5em;
 }
 
 .vocab-card-header{
   background-color: #003d6b;
-  box-shadow: 0px 2px 15px 3px rgba(171, 176, 189, 0.7);
+  box-shadow: 0px 2px 15px 0px rgba(0, 41, 73,0.2);
   /* border-top-right-radius: 2em; */
 }
 
