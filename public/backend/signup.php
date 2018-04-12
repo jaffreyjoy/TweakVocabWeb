@@ -22,8 +22,9 @@ if ($conn->connect_error) {
 $sql1 = "INSERT INTO users (first_name,last_name,email_id,username,password) VALUES ('$fname','$lname','$eid','$uname','$pass')";
 $result = $conn->query($sql1);
 if ($result) {
-	header('Location: chapters.html'); 
-} 
+	echo "success";
+}
+
 
 
 $conn->close();

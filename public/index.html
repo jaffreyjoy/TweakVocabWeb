@@ -29,7 +29,7 @@
     <!-- NavBar start -->
     <nav class="navbar navbar-expand-lg navbar-dark" id="navBar">
         <div class="container">
-        <a class="navbar-brand" href="/">
+        <a class="navbar-brand" href="index.html">
             <img class="navbar-brand-logo" src="images/tweak-logo.png" style="width:50px; height:50px"> <span class="app-name">Tweak Vocab</span>
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
@@ -39,18 +39,18 @@
         <div class="nav-links collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
                 <li class="nav-item active custom-active">
-                    <a class="nav-link" href="/">Home
+                    <a class="nav-link" href="index.html">Home
                         <span class="sr-only">(current)</span>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Chapters</a>
+                    <a class="nav-link" href="chapters.html">Chapters</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">About</a>
+                    <a class="nav-link" href="about.html">About</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Help</a>
+                    <a class="nav-link" href="help.html">Help</a>
                 </li>
             </ul>
         </div>
@@ -78,7 +78,7 @@
                 <img class="vocab-logo" src="images/vocab-logo.png" alt="vocab-logo">
                  <u><h5 class="card-title">Notch up your Vocab</h5></u>
                 <p class="card-text">Improve your vocabulary <br> by knowing the origin of words</p>
-                <a href="#" class="btn btn-primary">Let's Go</a>
+                <a href="chapters.html" class="btn btn-primary">Let's Go</a>
             </div>
         </div>
     </div>
@@ -100,7 +100,7 @@
                 <div class="modal-body">
                     <div class="container-fluid">
                     <!-- Login Form start -->
-                    <form >
+                    <form id="login_form">
                         <div class="form-row">
                             <div class="col-md-10 mb-3">
                                 <label for="validationServer01">Enter username or email</label>
@@ -177,14 +177,14 @@
                         <div class="form-row">
                             <div class="col-md-6 mb-3">
                                 <label for="validationServer01">First name</label>
-                                <input type="text" class="form-control is-valid" id="first_name" name="fname" placeholder="eg. Mark" pattern="[A-Za-z]+" title="Name can only consist of letters!!"required >
+                                <input type="text" class="form-control " id="first_name" name="fname" placeholder="eg. Mark" pattern="[A-Za-z]+" title="Name can only consist of letters!!"required >
                                 <!-- <div class="valid-feedback" id="first_name_valid">
                                     Looks good!
                                 </div> -->
                             </div>
                             <div class="col-md-6 mb-3">
                                 <label for="validationServer02">Last name</label>
-                                <input type="text" class="form-control is-valid" id="last_name" name="lname" placeholder="eg. Otto" 
+                                <input type="text" class="form-control" id="last_name" name="lname" placeholder="eg. Otto" 
                                 required pattern="[A-Za-z]+" title="Name can only consist of letters!!">
                                 <!-- <div class="valid-feedback" id="last_name_valid">
                                     Looks good!
@@ -194,7 +194,7 @@
                         <div class="form-row">
                             <div class="col-md-7 mb-3">
                                 <label for="validationServer03">Email id</label>
-                                <input type="Email" class="form-control is-invalid" id="validationServer03" name="eid" placeholder="eg. example@email.com" required>
+                                <input type="Email" class="form-control " id="email_id" name="eid" placeholder="eg. example@email.com" required>
                                <!--  <div class="invalid-feedback">
                                     Please provide a valid email.
                                 </div> -->
@@ -205,7 +205,7 @@
                                     <div class="input-group-prepend">
                                         <span class="input-group-text" id="inputGroupPrepend3">@</span>
                                     </div>
-                                    <input type="text" class="form-control is-invalid" id="username" name="uname" placeholder="eg. OMark34" aria-describedby="inputGroupPrepend3"
+                                    <input type="text" class="form-control" id="username" name="uname" placeholder="eg. OMark34" aria-describedby="inputGroupPrepend3"
                                         required>
                                    <!--  <div class="invalid-feedback">
                                         Please choose a username.
@@ -216,7 +216,7 @@
                         <div class="form-row">
                             <div class="col-md-6 mb-3">
                                 <label for="validationServer03">Password</label>
-                                <input type="password" class="form-control is-invalid" placeholder="password" name="pass" id="s_password" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters">
+                                <input type="password" class="form-control" placeholder="password" name="pass" id="s_password" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters">
                                 <div class="valid-feedback">
                                     Good to go!!
                                 </div>
@@ -226,7 +226,7 @@
                             </div>
                             <div class="col-md-6 mb-3">
                                 <label for="validationServer03">Re-enter Password</label>
-                                <input type="password" id="s_confirm_password" class="form-control is-invalid" placeholder="password" required>
+                                <input type="password" id="s_confirm_password" class="form-control" placeholder="password" required>
                                 <div class="valid-feedback">
                                     All good!!
                                 </div>
@@ -293,95 +293,9 @@
         </div>
     </div>
     <!-- SignUp Modal End -->
-</body>
-
-
-<!-- signup modal scripts -->
-<script type="text/javascript">
-
-$("#signup_form").submit(function(e){
-    return false;
-});
-
-function submit_form()
-{
-    console.log("inside")
-}
-
-var data;
-var password = document.getElementById("s_password")
-  , confirm_password = document.getElementById("s_confirm_password");
-
-$('#username').change(function(){
-	var entered_username = $('#username').val()
-	// console.log("checking")
-	// console.log(data)
-	if(data.filter(function(arr){return arr.username == entered_username})[0])
-    {
-    	alert("Username Already Exists!!")
-    	$('#username').val("")
-    }
-    // else{
-    // 	console.log("success")
-    // }
-})
-
-
-function validatePassword(){
-  if(password.value != confirm_password.value) {
-    confirm_password.setCustomValidity("Passwords Don't Match");
-  } else {
-    // console.log('Passwords match!!')
-    confirm_password.setCustomValidity("");
-  }
-}
-
-password.onchange = validatePassword;
-confirm_password.onkeyup = validatePassword;
-
-
-	$.ajax({
-        url: 'get_users.php',
-        type: 'POST',
-        error: (function(data){
-            // console.log(data);
-            }),
-        success: (function(data){
-            // console.log(data);
-            })
-    }).done(function(response){
-        // console.log("in done")
-        data = JSON.parse(response);
-        // console.log(data.length)
-
-    }); 
-
-// loginModal
-
-function login_click()
-{
-	console.log("in login click")
-	var user = $('#id').val()
-	var pass = $('#login_pass').val()
-	$.ajax({
-            url: 'login.php',
-            type: 'POST',
-            data: {user:user,pass:pass},
-            error: (function(data){
-                console.log(data);
-                }),
-            success: (function(data){
-                console.log(data);
-                })
-        }).done(function(response){
-            // console.log("in done")
-            var data = JSON.parse(response);
-            console.log(data.length)
-
-        });  
-}
+      <script type="text/javascript" src="js/access.js" ></script>
     
-</script>
+</body>
 
 
 
