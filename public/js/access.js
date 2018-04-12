@@ -46,16 +46,16 @@ function submit_form()
 	        success: (function(data){
                     localStorage.setItem('user',username.value)
                     console.log()
-                    if (window.location.href=='http://localhost/TweakVocabWeb/public/index.html') 
-                    {
-	       			     window.location.href= 'chapters.html'
-                    }
-                    else
-                    {
+                //     if (window.location.href=='http://localhost/TweakVocabWeb/public/index.html') 
+                //     {
+	       			     // window.location.href= 'chapters.html'
+                //     }
+                //     else
+                //     {
                         // $('#signUpModal').modal('toggle');
                         location.reload();
 
-                    }
+                    // }
 	            })
 	    })
     }
@@ -118,9 +118,7 @@ function login_click()
 {
 	var user = $('#id').val()
 	var pass = $('#login_pass').val()
-    // console.log("in login click")
-    // console.log("user: "+user)
-    // console.log("pass: "+pass)
+
 	$.ajax({
             url: 'backend/login.php',
             type: 'POST',
@@ -145,8 +143,8 @@ function login_click()
                     localStorage.setItem('user',data.username)
                     localStorage.setItem('fname',data.first_name)
                     localStorage.setItem('lname',data.last_name)
-                    window.location.href = 'chapters.html'
-                    
+                    // window.location.href = 'chapters.html'
+                    location.reload();
                 }
                 
 

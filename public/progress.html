@@ -290,10 +290,24 @@
     <!-- SignUp Modal End -->
       <script type="text/javascript" src="js/access.js" ></script>
 
+<div class="row" id="message" hidden="true" style="width: 99.9%">
+    <div class="col-md-3"></div>
+    <div class="container col-md-6">
+        <div class="vocab-card card text-center">
+            <div class="vocab-card-header card-header">
+                <span class="vocab-card-h-text">Progress</span>
+            </div>
+            <div class="card-body">
+                <img class="vocab-logo" src="images/progress.png" alt="vocab-logo" width="35%" style="">
+                 <u><h5 class="card-title">Examine your progress with the help of graphs</h5></u>
+                <p class="card-text">Please log in to make use of this feature</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3"></div>
+</div>
 
-
-
-<div class="row">
+<div class="row" id="data" hidden="true">
     <div class="col-md-1"></div>
     <div class="col-md-2">
         <div class="form-group">
@@ -325,7 +339,22 @@
 
     
 <script type="text/javascript">
-    
+
+$(window).on('load', function() {
+    var user = localStorage.getItem('user')
+    if (user==""||user==null) 
+    {
+        $("#message").prop("hidden", false)
+    }
+    else
+    {
+        $("#data").prop("hidden", false)
+        $('#bc').append(`<canvas id="byChapters"></canvas>`)
+        create_cc();
+    }
+  
+})
+
  $('#select').on('change', function() {
         var chapter = $("#select").prop('selectedIndex'); // 0 means all chapters.
         if (chapter == 0 ) 
@@ -347,8 +376,7 @@
 
     }); 
 
-$('#bc').append(`<canvas id="byChapters"></canvas>`)
-create_cc();
+
 
 function create_cc()
 {
