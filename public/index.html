@@ -173,7 +173,7 @@
                 <div class="modal-body">
                     <div class="container-fluid">
                     <!-- SignUp Form start -->
-                    <form action="signup.php" method="POST">
+                    <form id="signup_form">
                         <div class="form-row">
                             <div class="col-md-6 mb-3">
                                 <label for="validationServer01">First name</label>
@@ -267,7 +267,7 @@
                             </div>
                         </div> -->
 
-                        <button class="btn btn-primary" type="submit" >Submit form</button>
+                        <button class="btn btn-primary" type="submit" onclick="submit_form()">Submit form</button>
                     </form>
                     </div>
                     <!-- SignUp Form End -->
@@ -298,13 +298,17 @@
 
 <!-- signup modal scripts -->
 <script type="text/javascript">
+
+$("#signup_form").submit(function(e){
+    return false;
+});
+
+function submit_form()
+{
+    console.log("inside")
+}
+
 var data;
-
-        
-
-        
-
-
 var password = document.getElementById("s_password")
   , confirm_password = document.getElementById("s_confirm_password");
 

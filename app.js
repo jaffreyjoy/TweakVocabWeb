@@ -12,7 +12,7 @@ var app = express();
 
 // ejs view engine setup
 var ejs = require("ejs");
-app.set("views", __dirname + "\\public");
+app.set("views", __dirname + "public");
 app.engine("html", ejs.renderFile);
 app.set("view engine", "ejs");
 
