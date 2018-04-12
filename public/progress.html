@@ -13,6 +13,9 @@
     <link rel="stylesheet" href="stylesheets/style.css">
     <link rel="stylesheet" href="stylesheets/toast.css">
 
+      <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="stylesheets/footer.css">
+
 
     <title>Tweak Vocab</title>
     <!-- Optional JavaScript -->
@@ -380,15 +383,15 @@ $(window).on('load', function() {
 
 function create_cc()
 {
-
+ajax_call(0)
 var ctx = document.getElementById("byChapters").getContext('2d');
 var myChart = new Chart(ctx, {
     type: 'bar',
     data: {
         labels: ["1", "2", "3", "4", "5", "6", "7", "8", "9"],
         datasets: [{
-            label: '% Words Completed',
-            data: [10, 20, 30, 40, 50, 60,70,80,100],
+            label: '% Words Mastered',
+            data: [10, 20, 0, 0, 0, 0,0,0,0],
             backgroundColor: [
                 'rgba(192, 57, 43, 0.2)',
                 'rgba(165, 105, 189, 0.2)',
@@ -426,10 +429,11 @@ var myChart = new Chart(ctx, {
             yAxes: [{
                 scaleLabel: {
                     display: true,
-                    labelString: '% Words Completed'
+                    labelString: '% Words'
                 },
                 ticks: {
-                    beginAtZero:true
+                    beginAtZero:true,
+                    max:100
                 }
             }]
         }
@@ -440,19 +444,20 @@ var myChart = new Chart(ctx, {
 
 function create_dc(chapter)
 {
+ajax_call(chapter)
 var ctx = document.getElementById("byDecks").getContext('2d');
 var myChart = new Chart(ctx, {
     type: 'bar',
     data: {
         labels: ["1", "2", "3", "4"],
         datasets: [{
-            label: '% Words Completed',
-            data: [12, 19, 3, 5],
+            label: '% Words Need Review',
+            data: [1, 2, 3, 4],
             backgroundColor: [
                 'rgba(255, 99, 132, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
-                'rgba(255, 206, 86, 0.2)',
-                'rgba(75, 192, 192, 0.2)',
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(255, 99, 132, 0.2)',
             ],
             borderColor: [
                 'rgba(0,0,0,0.5)',
@@ -461,7 +466,42 @@ var myChart = new Chart(ctx, {
                 'rgba(0,0,0,0.5)',
             ],
             borderWidth: 1
-        }]
+        },
+        {
+            label: '% Words Learning',
+            data: [2, 4, 6, 8],
+            backgroundColor: [
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+            ],
+            borderColor: [
+                'rgba(0,0,0,0.5)',
+                'rgba(0,0,0,0.5)',
+                'rgba(0,0,0,0.5)',
+                'rgba(0,0,0,0.5)',
+            ],
+            borderWidth: 1
+        },
+        {
+            label: '% Words Mastered',
+            data: [4, 6, 8, 10],
+            backgroundColor: [
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+            ],
+            borderColor: [
+                'rgba(0,0,0,0.5)',
+                'rgba(0,0,0,0.5)',
+                'rgba(0,0,0,0.5)',
+                'rgba(0,0,0,0.5)',
+            ],
+            borderWidth: 1
+        }
+        ]
     },
     options: {
         scales: {
@@ -475,10 +515,11 @@ var myChart = new Chart(ctx, {
             yAxes: [{
                 scaleLabel: {
                     display: true,
-                    labelString: '% Words Completed'
+                    labelString: '% Words'
                 },
                 ticks: {
-                    beginAtZero:true
+                    beginAtZero:true,
+                    max:100
                 }
             }]
         }
@@ -486,7 +527,32 @@ var myChart = new Chart(ctx, {
 });
 }
 
+function ajax_call(chap)
+{
+$.ajax({
+        url: 'backend/progress.php',
+        type: 'POST',
+        dataType: 'json',
+        data: {chap:chap},
+        error: (function(data){
+
+            console.log("in error");
+            console.log(data);
+            }),
+        success: (function(response){
+            
+                console.log("in success");
+                console.log(response);
+
+            })
+    })
+}
+
 </script>
+
+<footer>
+        <p>© 2018<a style="color:#0a93a6; text-decoration:none;" href="#"> Vocabulary Builder</a>, All rights reserved 2017-2018.</p>
+    </footer>
 
 
 </body>

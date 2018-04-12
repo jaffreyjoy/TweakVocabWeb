@@ -1,0 +1,3 @@
+SELECT id FROM derived WHERE chapter=?     // gives all derived words in this chapter
+SELECT id FROM derived WHERE chapter=? AND deck=?    // gives all derived words in this chapter and this deck
+
