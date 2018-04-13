@@ -11,12 +11,12 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
         crossorigin="anonymous">
     <link rel="stylesheet" href="stylesheets/style.css">
-    <link rel="stylesheet" href="stylesheets/chapter.css">
     <link rel="stylesheet" href="stylesheets/toast.css">
+    <link rel="stylesheet" href="stylesheets/footer.css">
 
-        <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css">
-        <link rel="stylesheet" href="stylesheets/footer.css">
 
+    <link href="stylesheets/ext/cardslider.css" rel="stylesheet">
+    <link href="stylesheets/deck.css" rel="stylesheet">
 
     <title>Tweak Vocab</title>
     <!-- Optional JavaScript -->
@@ -28,6 +28,8 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+        crossorigin="anonymous"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.10/js/all.js" integrity="sha384-slN8GvtUJGnv6ca26v8EzVaR9DC58QEwsIk9q1QXdCU8Yu8ck/tL/5szYlBbqmS+"
         crossorigin="anonymous"></script>
 </head>
 
@@ -51,7 +53,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active custom-active" href="chapters.html">Chapters</a>
+                        <a class="nav-link active" href="chapters.html">Chapters</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="about.html">About</a>
@@ -302,30 +304,57 @@
     <!-- SignUp Modal End -->
 
 
-    <!-- Chapter cards Start -->
-
+    <!-- Deck cards Start -->
     <div class="container">
-        <div class="row chapter-card-bunker">
-            <!-- <div class="col-sm-4 chapter-card-cont">
-                <div class="card chapter-card">
-                    <img class="card-img-top chapter-card-img" src="images/chapter-icons/${i}.png" alt="Chapter card image">
-                    <hr class="card-divider">
-                    <div class="card-body">
-                        <h3 class="card-title chapter-title">Chapter ${i}</h3>
-                            <p class="card-text">Practise decks in this chapter</p>
-                            <a id=${i} class="btn btn-primary col-sm-12 chapter-btn">
-                                <span class="chapter-btn-txt">View decks</span>
-                            </a>
+        <center>
+            <div class="my-slider-parent" x`>
+                <div class="my-slider">
+                    <div class="col-md-8" style="height:500px;">
+                        <ul class="deck-card-bunker">
+                            <li></li>
+                        </ul>
                     </div>
                 </div>
-            </div> -->
-        </div>
+            </div>
+        </center>
+        <center>
+            <div class="row justify-content-center deck-nav-btns-cont">
+                <!-- <div class="col-md-6"> -->
+                <div class="col-md-2">
+                    <a class="prev deck-nav-btn">
+                        <div style="font-size:1em; color:rgb(255, 255, 255)">
+                            <svg aria-hidden="true" data-prefix="fal" data-icon="chevron-circle-left" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"
+                                class="svg-inline--fa fa-chevron-circle-left fa-w-16 fa-3x">
+                                <path fill="currentColor" d="M504 256C504 119 393 8 256 8S8 119 8 256s111 248 248 248 248-111 248-248zM256 472c-118.7 0-216-96.1-216-216 0-118.7 96.1-216 216-216 118.7 0 216 96.1 216 216 0 118.7-96.1 216-216 216zm-86.6-224.5l115.1-115c4.7-4.7 12.3-4.7 17 0l7.1 7.1c4.7 4.7 4.7 12.3 0 17L209 256l99.5 99.5c4.7 4.7 4.7 12.3 0 17l-7.1 7.1c-4.7 4.7-12.3 4.7-17 0l-115.1-115c-4.6-4.8-4.6-12.4.1-17.1z"
+                                    class=""></path>
+                            </svg>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-md-2">
+                    <a class="next deck-nav-btn">
+                        <div style="font-size:1em; color:rgb(255, 255, 255)">
+                            <svg aria-hidden="true" data-prefix="fal" data-icon="chevron-circle-right" role="img" xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 512 512" class="svg-inline--fa fa-chevron-circle-right fa-w-16 fa-3x">
+                                <path fill="currentColor" d="M8 256c0 137 111 248 248 248s248-111 248-248S393 8 256 8 8 119 8 256zM256 40c118.7 0 216 96.1 216 216 0 118.7-96.1 216-216 216-118.7 0-216-96.1-216-216 0-118.7 96.1-216 216-216zm86.6 224.5l-115.1 115c-4.7 4.7-12.3 4.7-17 0l-7.1-7.1c-4.7-4.7-4.7-12.3 0-17L303 256l-99.5-99.5c-4.7-4.7-4.7-12.3 0-17l7.1-7.1c4.7-4.7 12.3-4.7 17 0l115.1 115c4.6 4.8 4.6 12.4-.1 17.1z"
+                                    class=""></path>
+                            </svg>
+                        </div>
+                    </a>
+                </div>
+                <!-- </div> -->
+            </div>
+        </center>
     </div>
 
-    <!-- Chapter cards End -->
+    <!-- Deck cards End -->
 
-<footer>
-        <p>© 2018<a style="color:#0a93a6; text-decoration:none;" href="#"> Vocabulary Builder</a>, All rights reserved 2017-2018.</p>
+    <script src="js/ext/jquery.cardslider.min.js"></script>
+    <script src="js/deck.js"></script>
+
+    <footer>
+        <p>© 2018
+            <a style="color:#0a93a6; text-decoration:none;" href="#"> Vocabulary Builder</a>, All rights reserved 2017-2018.</p>
     </footer>
 
 

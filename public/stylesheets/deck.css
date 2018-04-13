@@ -1,0 +1,57 @@
+body {
+}
+
+.cardslider__card.center {
+  text-align: center;
+}
+
+.cardslider__card {
+  padding: 20px;
+  color: black;
+  background-color: rgb(255, 255, 255);
+  /* background-color:rgba(255, 255, 255, 0); */
+  box-shadow: 0px 0px 30px -7px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.my-slider-parent {
+  margin-top: -5%;
+}
+
+.deck-bs-card{
+    margin-top: -10%;
+    border:0px;
+}
+
+.deck-header {
+  /* margin-top: -2%; */
+}
+
+hr.deck-card-divider{
+    border: 0;
+    height: 1px;
+    margin-bottom: 10%;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+}
+
+.deck-btn{
+    padding-left: 5%;
+    padding-right: 5%;
+    margin-top: 8%;
+    border-radius: 30px;;
+}
+.deck-btn-txt{
+    color: white;
+}
+
+.deck-nav-btns-cont {
+  margin-top: 2%;
+}
+
+.deck-nav-btn:hover {
+  cursor: pointer;
+}
+
