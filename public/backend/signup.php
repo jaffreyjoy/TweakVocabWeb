@@ -22,6 +22,8 @@ if ($conn->connect_error) {
 $sql1 = "INSERT INTO users (first_name,last_name,email_id,username,password) VALUES ('$fname','$lname','$eid','$uname','$pass')";
 $result = $conn->query($sql1);
 if ($result) {
+	$sql1 = "ALTER TABLE progress ADD $uname int DEFAULT 0";
+	$result1 = $conn->query($sql1);
 	echo "success";
 }
 

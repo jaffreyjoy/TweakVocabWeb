@@ -361,7 +361,8 @@
             } else {
                 $("#data").prop("hidden", false)
                 $('#bc').append(`<canvas id="byChapters"></canvas>`)
-                create_cc();
+                ajax_call(0)
+                // create_cc(0);
             }
 
         })
@@ -371,12 +372,16 @@
             if (chapter == 0) {
                 $('#bd').empty()
                 $('#bc').append(`<canvas id="byChapters"></canvas>`)
-                create_cc();
+                ajax_call(0)
+
+                // create_cc(0);
 
             } else {
                 $('#bd').append(`<canvas id="byDecks"></canvas>`)
                 $('#bc').empty()
-                create_dc(chapter);
+                ajax_call(chapter)
+
+                // create_dc(chapter);
 
 
             }
@@ -386,8 +391,15 @@
 
 
 
-        function create_cc() {
-            ajax_call(0)
+        function create_cc(response) {
+            console.log('in create_cc')
+            console.log(response)
+            var arr = [];
+            for (var i = 1; i <= 9; i++) {
+                arr.push(response[i].toPrecision(3))
+            }
+            console.log(arr)
+            // response = [5,6,7,7,8,5,6,7,7]
             var ctx = document.getElementById("byChapters").getContext('2d');
             var myChart = new Chart(ctx, {
                 type: 'bar',
@@ -395,28 +407,36 @@
                     labels: ["1", "2", "3", "4", "5", "6", "7", "8", "9"],
                     datasets: [{
                         label: '% Words Mastered',
-                        data: [10, 20, 0, 0, 0, 0, 0, 0, 0],
+                        data: arr,
                         backgroundColor: [
-                            'rgba(192, 57, 43, 0.2)',
-                            'rgba(165, 105, 189, 0.2)',
-                            'rgba(93, 173, 226, 0.2)',
-                            'rgba(69, 179, 157, 0.2)',
-                            'rgba(39, 174, 96 , 0.2)',
-                            'rgba(241, 196, 15, 0.2)',
-                            'rgba(243, 156, 18, 0.2)',
-                            'rgba(112, 123, 124, 0.2)',
-                            'rgba(52, 73, 94, 0.2)'
+                            'rgba(255,165,0, 0.5)',
+                            'rgba(255,165,0, 0.5)',
+                            'rgba(255,165,0, 0.5)',
+                            'rgba(255,165,0, 0.5)',
+                            'rgba(255,165,0, 0.5)',
+                            'rgba(255,165,0, 0.5)',
+                            'rgba(255,165,0, 0.5)',
+                            'rgba(255,165,0, 0.5)',
+                            'rgba(255,165,0, 0.5)',
+                            // 'rgba(165, 105, 189, 0.5)',  
+                            // 'rgba(93, 173, 226, 0.5)',
+                            // 'rgba(69, 179, 157, 0.5)',
+                            // 'rgba(39, 174, 96 , 0.5)',
+                            // 'rgba(241, 196, 15, 0.5)',
+                            // 'rgba(243, 156, 18, 0.5)',
+                            // 'rgba(112, 123, 124, 0.5)',
+                            // 'rgba(52, 73, 94, 0.5)'
                         ],
                         borderColor: [
-                            'rgba(0,0,0,0.5)',
-                            'rgba(0,0,0,0.5)',
-                            'rgba(0,0,0,0.5)',
-                            'rgba(0,0,0,0.5)',
-                            'rgba(0,0,0,0.5)',
-                            'rgba(0,0,0,0.5)',
-                            'rgba(0,0,0,0.5)',
-                            'rgba(0,0,0,0.5)',
-                            'rgba(0,0,0,0.5)',
+                            'rgba(0,0,0,0.6)',
+                            'rgba(0,0,0,0.6)',
+                            'rgba(0,0,0,0.6)',
+                            'rgba(0,0,0,0.6)',
+                            'rgba(0,0,0,0.6)',
+                            'rgba(0,0,0,0.6)',
+                            'rgba(0,0,0,0.6)',
+                            'rgba(0,0,0,0.6)',
+                            'rgba(0,0,0,0.6)',
                         ],
                         borderWidth: 1
                     }]
@@ -427,13 +447,17 @@
                             display: true,
                             scaleLabel: {
                                 display: true,
-                                labelString: 'Chapters'
+                                labelString: 'Chapters',
+                                fontSize: 20,
+                                fontColor: '#444'
                             }
                         }],
                         yAxes: [{
                             scaleLabel: {
                                 display: true,
-                                labelString: '% Words'
+                                labelString: '% Words',
+                                fontSize: 20,
+                                fontColor: '#444'
                             },
                             ticks: {
                                 beginAtZero: true,
@@ -446,8 +470,33 @@
 
         }
 
-        function create_dc(chapter) {
-            ajax_call(chapter)
+        function create_dc(response) {
+
+            var need_review = [];
+            var learning = [];
+            var mastered = [];
+
+            var a = response[0]
+            var b = response[1]
+            var c = response[2]
+
+            Object.size = function(obj) {
+            var size = 0, key;
+            for (key in obj) {
+                    if (obj.hasOwnProperty(key)) size++;
+                }
+                return size;
+            };
+
+            var size = Object.size(response);
+
+
+            for (var i = 1; i <= size; i++) {
+                need_review.push(a[i].toPrecision(3))
+                learning.push(b[i].toPrecision(3))
+                mastered.push(c[i].toPrecision(3))
+            }
+
             var ctx = document.getElementById("byDecks").getContext('2d');
             var myChart = new Chart(ctx, {
                 type: 'bar',
@@ -455,52 +504,52 @@
                     labels: ["1", "2", "3", "4"],
                     datasets: [{
                             label: '% Words Need Review',
-                            data: [1, 2, 3, 4],
+                            data: need_review,
                             backgroundColor: [
-                                'rgba(255, 99, 132, 0.2)',
-                                'rgba(255, 99, 132, 0.2)',
-                                'rgba(255, 99, 132, 0.2)',
-                                'rgba(255, 99, 132, 0.2)',
+                                'rgba(255, 99, 132, 0.5)',
+                                'rgba(255, 99, 132, 0.5)',
+                                'rgba(255, 99, 132, 0.5)',
+                                'rgba(255, 99, 132, 0.5)',
                             ],
                             borderColor: [
-                                'rgba(0,0,0,0.5)',
-                                'rgba(0,0,0,0.5)',
-                                'rgba(0,0,0,0.5)',
-                                'rgba(0,0,0,0.5)',
+                                'rgba(0,0,0,0.6)',
+                                'rgba(0,0,0,0.6)',
+                                'rgba(0,0,0,0.6)',
+                                'rgba(0,0,0,0.6)',
                             ],
                             borderWidth: 1
                         },
                         {
                             label: '% Words Learning',
-                            data: [2, 4, 6, 8],
+                            data: learning,
                             backgroundColor: [
-                                'rgba(54, 162, 235, 0.2)',
-                                'rgba(54, 162, 235, 0.2)',
-                                'rgba(54, 162, 235, 0.2)',
-                                'rgba(54, 162, 235, 0.2)',
+                                'rgba(54, 162, 235, 0.5)',
+                                'rgba(54, 162, 235, 0.5)',
+                                'rgba(54, 162, 235, 0.5)',
+                                'rgba(54, 162, 235, 0.5)',
                             ],
                             borderColor: [
-                                'rgba(0,0,0,0.5)',
-                                'rgba(0,0,0,0.5)',
-                                'rgba(0,0,0,0.5)',
-                                'rgba(0,0,0,0.5)',
+                                'rgba(0,0,0,0.6)',
+                                'rgba(0,0,0,0.6)',
+                                'rgba(0,0,0,0.6)',
+                                'rgba(0,0,0,0.6)',
                             ],
                             borderWidth: 1
                         },
                         {
                             label: '% Words Mastered',
-                            data: [4, 6, 8, 10],
+                            data: mastered,
                             backgroundColor: [
-                                'rgba(255, 206, 86, 0.2)',
-                                'rgba(255, 206, 86, 0.2)',
-                                'rgba(255, 206, 86, 0.2)',
-                                'rgba(255, 206, 86, 0.2)',
+                                'rgba(255, 206, 86, 0.5)',
+                                'rgba(255, 206, 86, 0.5)',
+                                'rgba(255, 206, 86, 0.5)',
+                                'rgba(255, 206, 86, 0.5)',
                             ],
                             borderColor: [
-                                'rgba(0,0,0,0.5)',
-                                'rgba(0,0,0,0.5)',
-                                'rgba(0,0,0,0.5)',
-                                'rgba(0,0,0,0.5)',
+                                'rgba(0,0,0,0.6)',
+                                'rgba(0,0,0,0.6)',
+                                'rgba(0,0,0,0.6)',
+                                'rgba(0,0,0,0.6)',
                             ],
                             borderWidth: 1
                         }
@@ -512,13 +561,17 @@
                             display: true,
                             scaleLabel: {
                                 display: true,
-                                labelString: 'Decks'
+                                labelString: 'Decks',
+                                fontSize: 20,
+                                fontColor: '#444'
                             }
                         }],
                         yAxes: [{
                             scaleLabel: {
                                 display: true,
-                                labelString: '% Words'
+                                labelString: '% Words',
+                                fontSize: 20,
+                                fontColor: '#444'
                             },
                             ticks: {
                                 beginAtZero: true,
@@ -531,23 +584,30 @@
         }
 
         function ajax_call(chap) {
+            console.log("calling chap: "+chap)
+            var user = localStorage.getItem('user')
             $.ajax({
                 url: 'backend/progress.php',
                 type: 'POST',
                 dataType: 'json',
                 data: {
-                    chap: chap
+                    chap: chap,
+                    user: user,
                 },
                 error: (function (data) {
-
                     console.log("in error");
                     console.log(data);
                 }),
                 success: (function (response) {
-
                     console.log("in success");
-                    console.log(response);
-
+                    if (chap==0) 
+                    {
+                        create_cc(response)
+                    }
+                    else
+                    {
+                        create_dc(response)
+                    }
                 })
             })
         }

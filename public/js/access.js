@@ -45,7 +45,8 @@ function submit_form()
 	            }),
 	        success: (function(data){
                     localStorage.setItem('user',username.value)
-                    console.log()
+                    localStorage.setItem('fname',fname.value)
+                    localStorage.setItem('lname',lname.value)
                 //     if (window.location.href=='http://localhost/TweakVocabWeb/public/index.html') 
                 //     {
 	       			     // window.location.href= 'chapters.html'
