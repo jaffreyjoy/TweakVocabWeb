@@ -16,7 +16,7 @@ $(document).ready(function () {
                         <img class="card-img-top chapter-card-img" src="images/chapter-icons/${i}.png" alt="Chapter card image">
                         <hr class="card-divider">
                         <div class="card-body">
-                            <h3 class="card-title chapter-title">Chapter ${i}</h5>
+                            <h3 class="card-title chapter-title">Chapter ${i}</h3>
                             <p class="card-text">Practise decks in this chapter</p>
                             <a id=${i} class="btn btn-primary col-sm-12 chapter-btn"><span class="chapter-btn-txt">View decks</span></a>
                         </div>
@@ -25,7 +25,10 @@ $(document).ready(function () {
             `);
         }
         $(".chapter-btn").click(function() {
-            alert("clicked chapter card btn");
+            var id = $(this).attr("id");
+            alert("clicked chapter card with id "+id);
+            localStorage.clicked_chapter = id;
+            window.location.href = "deck.html";
         });
     }
 
